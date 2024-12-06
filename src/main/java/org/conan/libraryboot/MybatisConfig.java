@@ -6,12 +6,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+
 import javax.sql.DataSource;
+
 @Configuration
 public class MybatisConfig {
     /**
      * SqlSessionFactory 빈 생성
-     *
      *
      * @param dataSource 데이터베이스 연결을 위한 DataSource 객체
      * @return SqlSessionFactoryBean 객체
@@ -25,9 +26,9 @@ public class MybatisConfig {
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("mybatis-config.xml"));
         return sqlSessionFactoryBean.getObject(); // SqlSessionFactory 반환
     }
+
     /**
      * SqlSessionTemplate 빈 생성
-     *
      *
      * @param sqlSessionFactory SqlSessionFactory 객체
      * @return SqlSessionTemplate 인스턴스

@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Board</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>게시글 번호</th>
+        <th>제목</th>
+        <th>내용</th>
+        <th>작성자</th>
+        <th>등록일</th>
+        <th>조회수</th>
+    </tr>
+    <tr th:each="item : ${bList}">
+        <td>[[${item.bno}]]</td>
+        <td><a th:href="@{/board/read(bno=${item.bno})}">[[${item.title}]]</a></td>
+        <td>[[${item.content}]]</td>
+        <td>[[${item.writer}]]</td>
+        <td>[[${#temporals.format(item.regDate, 'yyyy/MM/dd')}]]</td>
+        <td>[[${item.hit}]]</td>
+    </tr>
+</table>
+<a class="button" th:href="@{/board/write}">새 글 쓰기</a>
+</body>
+</html>
